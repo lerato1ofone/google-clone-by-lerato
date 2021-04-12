@@ -3,10 +3,11 @@ import Avatar from '../components/Avatar'
 import {MicrophoneIcon, ViewGridIcon} from '@heroicons/react/solid'
 import {SearchIcon} from '@heroicons/react/outline'
 import Image from 'next/image'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="flex flex-col items-container justify-center h-screen">
       <Head>
         <title>Google</title>
         <link rel="icon" href="/Google-Chrome-Google-Chrome.ico" />
@@ -52,6 +53,7 @@ export default function Home() {
       </form>
 
       {/* Footer */}
+      <Footer />
     </div>
   )
 }
