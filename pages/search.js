@@ -1,14 +1,17 @@
 import Head from 'next/head';
 import Header from '../components/Header';
-import {API_KEY, CONTEXT_KEY} from '../keys'
+import { API_KEY, CONTEXT_KEY } from '../keys'
 import Response from '../response'
+import { useRouter } from 'next/router'
+import SearchResults from '../components/SearchResults';
 
 function Search({results}) {
-    console.log(results);
+    const router = useRouter();
+
     return (
         <div>
             <Head>
-                <title>Search results</title>
+                <title>{router.query.term} - Google Search</title>
                 <link rel="icon" href="/Google-Chrome-Google-Chrome.ico" />
             </Head>
 
@@ -16,7 +19,7 @@ function Search({results}) {
             <Header />
 
             {/* Search results */}
-
+            <SearchResults results={results}/>
         </div>
     )
 }
@@ -26,7 +29,9 @@ export default Search
 export async function getServerSideProps(context) {
     const useMockData = true;
 
-    const data = useMockData ? Response : await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}`)
+    const startIndex = context.query.start || "0";
+
+    const data = useMockData ? Response : await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`)
                         .then((response) => response.json());
 
     return {
