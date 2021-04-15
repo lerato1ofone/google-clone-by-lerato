@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Footer from '../components/Footer'
 import { useRef } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export default function Home() {
   const router = useRouter();
@@ -37,7 +38,7 @@ export default function Home() {
 
         {/* Right side */}
         <div className="flex space-x-4 items-center">
-        <p className="link">Gmail</p>
+        <a href="https://gmail.com" target="_blank"><p className="link">Gmail</p></a>
         <p className="link">Images</p>
        
         <ViewGridIcon className="h-10 w-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer" />
@@ -58,7 +59,7 @@ export default function Home() {
         <div className="flex w-full mt-5 hover:shadow-lg focus-within:shadow-lg max-w-md rounded-full border border-gray-200 px-5 py-3 items-center sm:max-w-xl lg:max-w-2xl">
           <SearchIcon className="h-5 mr-3 text-gray-500" />
           <input ref={searchInputReference} type="text" className="focus: outline-none flex-grow"/>
-          <MicrophoneIcon className="h-5"/>
+          <MicrophoneIcon className="h-5 text-blue-600"/>
         </div>
         <div className="flex flex-col w-1/2 space-y-2 justify-center mt-5 sm:space-y-0 sm:flex-row sm:space-x-4">
           <button className="btn" onClick={search}>Google Search</button>

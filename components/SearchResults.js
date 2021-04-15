@@ -1,7 +1,6 @@
 import PaginationButtons from "./PaginationButtons"
 
 function SearchResults({ results }) {
-    console.log(results);
     return (
         <div className="mx-auto w-full px-6 sm:pl-[9%] md:pl-[16%] lg:pl-40">
             <p className="text-gray-600 text-md mt-3 mb-5">
