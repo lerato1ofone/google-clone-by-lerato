@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router"
 import PaginationButtons from "./PaginationButtons"
 
@@ -33,12 +34,11 @@ function SearchResults({ results }) {
                 : 
                 <div className="grid grid-cols-2 gap-x-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                     {results.items?.map(result => (
-                        
                         <div key={result.link} className="flex flex-col flex-wrap justify-items-center max-w-sm">
                             <div className="max-w-[240px] mb-5 flex-wrap">
                                 <img
                                     loading="lazy"
-                                    src={result.link}
+                                    src={result.pagemap.cse_image?.[0].src}
                                     height="220"
                                     width="240"
                                     className="cursor-pointer"
@@ -52,8 +52,7 @@ function SearchResults({ results }) {
                             </div>
                         </div>
                     ))}
-                </div>
-                        
+                </div> 
             }
 
             <PaginationButtons />
