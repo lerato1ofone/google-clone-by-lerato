@@ -22,8 +22,8 @@ function HeaderOptions() {
         lg:justify-start lg:space-x-36 lg:pl-40 md:justify-start md:pl-40 border-b">
         {/* Left Side */}
             <div className="flex space-x-6">
-                <button onClick={(e) => search(e, 'web')}><HeaderOption Icon={SearchIcon} title="All" selected/></button>
-                <button onClick={(e) => search(e, 'image')}><HeaderOption Icon={PhotographIcon} title="Images"/></button>
+                <button className="outline-none focus:outline-none" onClick={(e) => search(e, 'web')}><HeaderOption Icon={SearchIcon} title="All" selected/></button>
+                <button className="outline-none focus:outline-none" onClick={(e) => search(e, 'image')}><HeaderOption Icon={PhotographIcon} title="Images"/></button>
                 <HeaderOption Icon={PlayIcon} title="Videos"/>
                 <HeaderOption Icon={NewspaperIcon} title="News"/>
                 <HeaderOption Icon={MapIcon} title="Maps"/>
